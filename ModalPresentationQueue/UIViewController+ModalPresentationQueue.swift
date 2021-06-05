@@ -73,7 +73,7 @@ private struct AssociatedKeys {
     
 }
 
-extension UIViewController {
+@objc public extension UIViewController {
     /**
      This block is called after the view controller becomes dismissed.
      */
@@ -100,7 +100,7 @@ extension UIViewController {
     /**
      Wrapped dismiss completion.
      */
-    private var dismissCompletionWrapper: ActionWrapper? {
+    @nonobjc private var dismissCompletionWrapper: ActionWrapper? {
         get {
             return objc_getAssociatedObject(self, &AssociatedKeys.DismissCompletion) as? ActionWrapper
         } set {
@@ -111,7 +111,7 @@ extension UIViewController {
     }
     
     // MARK: method swizzling
-    static func swizzleViewDidDisappear() {
+    @objc static func swizzleViewDidDisappear() {
         //Make sure This isn't a subclass of UIViewController, So that It applies to all UIViewController childs
             if self != UIViewController.self {
                 return
