@@ -15,7 +15,7 @@ private struct AssociatedKeys {
     static var DismissCompletion = "np_DismissCompletion"
 }
 
-public extension UIViewController {
+@objc public extension UIViewController {
     /**
      Simple block which takes no parameters and returns nothing.
      */
