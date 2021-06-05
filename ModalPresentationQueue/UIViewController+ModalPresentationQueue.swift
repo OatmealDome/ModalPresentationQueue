@@ -111,7 +111,7 @@ private struct AssociatedKeys {
     }
     
     // MARK: method swizzling
-    @objc static func swizzleViewDidDisappear() {
+    @objc public static func swizzleViewDidDisappear() {
         //Make sure This isn't a subclass of UIViewController, So that It applies to all UIViewController childs
             if self != UIViewController.self {
                 return
